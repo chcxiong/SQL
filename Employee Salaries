@@ -35,3 +35,10 @@ Select department,avg(salary) AS avg_salary
 from employees
 Group by department
 Having avg_salary>=70000;
+
+--Calculation of average salaries across departments with employee experience equal or greater than 6 years.
+
+Select department,avg(salary) AS avg_salary
+From employees
+Where years_of_experience >= 6
+Group by department;
