@@ -42,3 +42,13 @@ Select department,avg(salary) AS avg_salary
 From employees
 Where years_of_experience >= 6
 Group by department;
+
+--List of employees and their seniority level based off of their years of experience in alphabetical order
+Select department, years_of_experience As years_worked,
+CASE WHEN years_of_experience<=3 Then "Novice"
+When years_of_experience>=3 Then "Intermediate"
+When years_of_experience>=6 Then "Proficient"
+Else "Professional"
+End As Experience
+From employees
+Order By years_worked asc,department asc
