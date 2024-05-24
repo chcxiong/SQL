@@ -74,4 +74,17 @@ when paid_time_off_days<=14 then 'Med PTO'
 when paid_time_off_days<=21 then 'High PTO',
 From fortune_companies;
 
+---What companies have over 300k in annual revenue?
+Select company_name, revenue,
+Case when revenue > 300 then 'Yes'
+when revenue <= 299 then'No'
+Else 'Not applicable'
+End as Over300
+From fortune_companies
+Order By revenue asc;
 
+---Number of employees in proportion to maternity weeks available for employees
+Select count(maternity_leave_weeks), employees
+From fortune_companies
+Group by employees
+Having Count(maternity_leave_weeks) > 8;
